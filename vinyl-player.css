@@ -1,0 +1,252 @@
+/* Vinyl Player Styles */
+.vinyl-player {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(20, 20, 40, 0.95);
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+/* Vinyl Record */
+.vinyl-record {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+#vinyl {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 30%, #111, #000);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 0 2px #222,
+    0 0 0 6px #444,
+    inset 0 0 10px rgba(0, 0, 0, 0.8),
+    inset 0 2px 5px rgba(255, 255, 255, 0.1);
+  animation: none;
+}
+
+#vinyl.spinning {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Center label */
+#vinyl::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25px;
+  height: 25px;
+  background: radial-gradient(circle at 30% 30%, #ff6b9d, #c91e63);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(193, 30, 99, 0.5);
+}
+
+/* Grooves effect */
+#vinyl::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-radial-gradient(
+      circle,
+      transparent 0px,
+      transparent 2px,
+      rgba(255, 255, 255, 0.03) 2px,
+      rgba(255, 255, 255, 0.03) 3px
+    );
+  border-radius: 50%;
+}
+
+/* Player Controls */
+.player-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 140px;
+}
+
+.player-info {
+  text-align: center;
+}
+
+.song-title {
+  color: #e6e6fa;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.song-artist {
+  color: #b0b0b0;
+  font-size: 0.75rem;
+  margin: 0;
+  font-style: italic;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Play/Pause Button */
+#playPauseBtn {
+  background: linear-gradient(135deg, #ff6b9d, #c91e63);
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(193, 30, 99, 0.3);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+#playPauseBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(193, 30, 99, 0.5);
+}
+
+#playPauseBtn:active {
+  transform: scale(0.95);
+}
+
+/* Time Display */
+.time-display {
+  color: #b0b0b0;
+  font-size: 0.75rem;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  min-width: 50px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Audio element (hidden) */
+audio {
+  display: none;
+}
+
+/* Message Button (opposite side of vinyl player) */
+.message-button {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: rgba(20, 20, 40, 0.95);
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.message-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.message-button:active {
+  transform: translateY(-2px);
+}
+
+.message-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #6bf0ff, #00d4ff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 0 20px rgba(107, 240, 255, 0.5);
+}
+
+.message-label {
+  color: #e6e6fa;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  max-width: 80px;
+  line-height: 1.2;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .message-button {
+    bottom: 20px;
+    left: 20px;
+    padding: 15px;
+    gap: 12px;
+  }
+  
+  .message-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+  }
+  
+  .message-label {
+    font-size: 0.75rem;
+  }
+  .vinyl-player {
+    bottom: 20px;
+    right: 20px;
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .vinyl-record {
+    width: 60px;
+    height: 60px;
+  }
+  
+  #playPauseBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  
+  .song-title {
+    font-size: 0.8rem;
+  }
+  
+  .song-artist {
+    font-size: 0.65rem;
+  }
+}

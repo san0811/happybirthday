@@ -1,0 +1,125 @@
+/* Story container styles */
+.story-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 20, 0.7) 50%, rgba(0, 0, 0, 0.6) 100%);
+  backdrop-filter: blur(2px);
+  flex-direction: column;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.story-container.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.story-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.story-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #ff6b9d, #c91e63);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(193, 30, 99, 0.3);
+  z-index: 10;
+}
+
+.story-close-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(193, 30, 99, 0.5);
+}
+
+.story-close-btn:active {
+  transform: scale(0.95);
+}
+
+.story-text {
+  font-size: 1.5rem;
+  color: #e6e6fa;
+  text-align: center;
+  max-width: 85%;
+  line-height: 1.8;
+  font-family: 'Courier New', 'Courier', 'Georgia', serif;
+  min-height: 150px;
+  padding: 40px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 10px rgba(255, 255, 255, 0.1);
+  word-wrap: break-word;
+  max-height: 70vh;
+  overflow-y: auto;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  background-color: rgba(0, 0, 20, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+}
+
+.story-text.typing {
+  animation: blink 0.7s infinite;
+}
+
+/* Blinking cursor animation */
+.story-text::after {
+  content: '█';
+  display: inline;
+  width: 2px;
+  color: #ffffff;
+  animation: blink 0.7s infinite;
+  margin-left: 3px;
+}
+
+.story-text.completed::after {
+  display: none;
+}
+
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.story-hint {
+  display: none;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Make the whole area clickable */
+body {
+  cursor: pointer;
+}
