@@ -1332,3 +1332,21 @@ body {
     transform: scale(0);
   }
 }
+
+/* portrait orientation tweaks for mobile devices */
+@media (orientation: portrait) and (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: auto;
+  }
+
+  .flowers {
+    transform: scale(0.6);
+  }
+
+  .flower {
+    bottom: 5vmin;
+  }
+}  

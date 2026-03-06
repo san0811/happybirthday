@@ -216,3 +216,15 @@ audio {
     font-size: 0.65rem;
   }
 }
+
+/* portrait-specific adjustments */
+@media (orientation: portrait) {
+  .vinyl-player {
+    bottom: 15px;
+    right: 15px;
+  }
+  .message-button {
+    bottom: 15px;
+    left: 15px;
+  }
+}  
