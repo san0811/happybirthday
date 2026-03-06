@@ -48,6 +48,14 @@ typings/
 # Optional REPL history
 .node_repl_history
 
+# Large media files
+memories/
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.flv
+
 # Output of 'npm pack'
 *.tgz
 

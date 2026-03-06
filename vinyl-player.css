@@ -26,18 +26,18 @@
 #vinyl {
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 30% 30%, #111, #000);
+  display: block;
   border-radius: 50%;
   box-shadow: 
-    0 0 0 2px #222,
-    0 0 0 6px #444,
-    inset 0 0 10px rgba(0, 0, 0, 0.8),
-    inset 0 2px 5px rgba(255, 255, 255, 0.1);
+    0 4px 15px rgba(0, 0, 0, 0.5),
+    0 0 0 2px rgba(0, 0, 0, 0.3),
+    inset 0 2px 8px rgba(0, 0, 0, 0.8);
   animation: none;
+  transition: transform 0.1s linear;
 }
 
 #vinyl.spinning {
-  animation: spin 3s linear infinite;
+  animation: spin 4s linear infinite;
 }
 
 @keyframes spin {
@@ -47,40 +47,6 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-/* Center label */
-#vinyl::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 25px;
-  height: 25px;
-  background: radial-gradient(circle at 30% 30%, #ff6b9d, #c91e63);
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(193, 30, 99, 0.5);
-}
-
-/* Grooves effect */
-#vinyl::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  background: 
-    repeating-radial-gradient(
-      circle,
-      transparent 0px,
-      transparent 2px,
-      rgba(255, 255, 255, 0.03) 2px,
-      rgba(255, 255, 255, 0.03) 3px
-    );
-  border-radius: 50%;
 }
 
 /* Player Controls */
